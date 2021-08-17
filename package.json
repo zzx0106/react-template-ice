@@ -1,0 +1,50 @@
+{
+  "name": "@alifd/scaffold-lite",
+  "version": "0.1.0",
+  "description": "轻量级模板，使用 TypeScript，仅包含基础的 Layout。",
+  "private": true,
+  "scripts": {
+    "tsc": "tsc --project config/tsconfig.json",
+    "tsc:w": "tsc config/config.ts --outFile ./build.config.js -w",
+    "start:watch": "concurrently \"npm run tsc:w\" \"icejs start --config build.config.js\"",
+    "start": "npm run tsc && icejs start --config build.config.js",
+    "build": "npm run tsc && icejs build --config build.config.js",
+    "lint": "npm run eslint && npm run stylelint",
+    "eslint": "eslint --cache --ext .js,.jsx,.ts,.tsx ./",
+    "eslint:fix": "npm run eslint -- --fix",
+    "stylelint": "stylelint \"**/*.{css,scss,less}\""
+  },
+  "dependencies": {
+    "@alifd/next": "^1.19.4",
+    "@alifd/theme-design-pro": "^0.x",
+    "moment": "^2.24.0",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
+  },
+  "devDependencies": {
+    "@types/postcss-import": "^12.0.1",
+    "@types/postcss-preset-env": "^6.7.3",
+    "@types/postcss-url": "^8.0.2",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@iceworks/spec": "^1.0.0",
+    "build-plugin-fusion": "^0.1.0",
+    "build-plugin-moment-locales": "^0.1.0",
+    "concurrently": "^6.2.1",
+    "cssnano": "^4.1.10",
+    "cssnano-preset-advanced": "^4.0.7",
+    "eslint": "^6.8.0",
+    "ice.js": "^1.0.0",
+    "postcss-flexbugs-fixes": "^4.1.0",
+    "postcss-import": "12.0.1",
+    "postcss-preset-env": "6.7.0",
+    "postcss-url": "8.0.0",
+    "postcss-viewport-units": "^0.1.6",
+    "stylelint": "^13.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alibaba-fusion/materials/tree/master/scaffolds/scaffold-lite"
+  },
+  "originTemplate": "@alifd/scaffold-lite"
+}
