@@ -7,6 +7,11 @@ export interface IceConfig {
   /** 在 icejs 默认配置了 { "@": "./src/" } 的规则，因此项目大多数时候不需要配置，配置完成后则可以更加简单的导入模块了： */
   alias?: {};
   /**
+   * 自定义webpack，如需使用webpack5，需要开启这个
+   * @default false
+   */
+  customWebpack?: boolean;
+  /**
    * 配置 webpack 的  output.publicPath  属性。 仅在运行  build  命令时生效。
    * @default /
    */

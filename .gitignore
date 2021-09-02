@@ -12,6 +12,8 @@ build/
 dist/
 tmp/
 lib/
+.build.config
+dll/
 
 # misc
 .idea/

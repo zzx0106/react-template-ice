@@ -1,11 +1,11 @@
-import postcssImport from 'postcss-import';
-import postcssUrl from 'postcss-url';
-import pxToViewPort from '../src/libs/px2vw';
-import pxToRem from '../src/libs/px2rem';
-import postcssPresetEnv from 'postcss-preset-env';
-import postcssFlexbugsFixes from 'postcss-flexbugs-fixes';
-import postcssViewportUnits from 'postcss-viewport-units';
-import cssnano from 'cssnano';
+const postcssImport = require('postcss-import');
+const postcssUrl = require('postcss-url');
+const pxToViewPort = require('./src/libs/px2vw');
+const pxToRem = require('./src/libs/px2rem');
+const postcssPresetEnv = require('postcss-preset-env');
+const postcssFlexbugsFixes = require('postcss-flexbugs-fixes');
+const postcssViewportUnits = require('postcss-viewport-units');
+const cssnano = require('cssnano');
 
 const mobalConfig = [
   pxToViewPort({
@@ -26,7 +26,7 @@ const mobalConfig = [
   }),
   postcssViewportUnits({
     // 修复after 和befor会报错的bug
-    filterRule: (rule: { selector: string }) => {
+    filterRule: (rule) => {
       return (
         rule.selector.indexOf('::after') === -1 &&
         rule.selector.indexOf('::before') === -1 &&
@@ -36,17 +36,19 @@ const mobalConfig = [
     },
   }),
 ];
-export const postcssOptions = [
-  postcssImport({}),
-  postcssUrl({}),
-  postcssPresetEnv(),
-  postcssFlexbugsFixes(),
-  // ...mobalConfig,
-  cssnano({
-    cssnano: {
-      preset: 'advanced',
-      autoprefixer: false, // 和cssnext同样具有autoprefixer，保留一个
-      'postcss-zindex': false,
-    },
-  }),
-];
+module.exports = {
+  plugins: [
+    postcssImport({}),
+    postcssUrl({}),
+    postcssPresetEnv(),
+    postcssFlexbugsFixes(),
+    ...mobalConfig,
+    cssnano({
+      cssnano: {
+        preset: 'advanced',
+        autoprefixer: false, // 和cssnext同样具有autoprefixer，保留一个
+        'postcss-zindex': false,
+      },
+    }),
+  ],
+};

@@ -5,7 +5,7 @@ import styles from './index.module.scss';
 const Guide = () => {
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Welcome to icejs!</h2>
+      <h2 className={styles.title}>Welcome to icej1s!</h2>
 
       <p className={styles.description}>This is a awesome project, enjoy it!</p>
 
@@ -22,11 +22,7 @@ const Guide = () => {
             使用文档
           </Button>
         </a>
-        <a
-          href="https://github.com/ice-lab/icejs"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href="https://github.com/ice-lab/icejs" target="_blank" rel="noopener noreferrer">
           <Button type="secondary" size="large">
             GitHub
           </Button>
